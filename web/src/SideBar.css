@@ -65,7 +65,9 @@ aside form button {
 
 }
 
-
+aside form button:hover {
+    background-color: #6931ca;
+}
 
 
 

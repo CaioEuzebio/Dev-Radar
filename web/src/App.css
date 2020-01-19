@@ -6,4 +6,24 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+
+}
+
+#app main {
+    margin-left: 30px;
+}
+
+@media(max-width: 1000px) {
+    #app {
+        flex-direction: column;
+    }
+
+    #app main {
+        margin-left: 0px;
+        margin-top: 30px;
+    }
+
+    aside {
+        width: 100%;
+    }
 }
