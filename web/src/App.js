@@ -11,7 +11,7 @@ import { useState } from 'react';
 
 function App() {
 
-  const [devs, setDevs] = useState([]);
+  const [devs, setDevs] = useState();
 
   const [github_username, setgithub_username] = useState('');
   const [techs, settechs] = useState('');
@@ -45,9 +45,11 @@ function App() {
       const response = api.get('/devs');
 
       setDevs(response.data);
+      console.log(devs);
     }
-
+    
     loadDevs();
+    
 
   }, []);
     
@@ -133,21 +135,22 @@ function App() {
     </aside>
     <main>
       <ul>
-        {devs.map(dev => (
+        {devs && devs.map(dev => (
 
             <li className="dev-item">
               <header>
-                <img src={dev.avatar_url} alt={dev.name}/>
+                <img src={dev.avatar_url} alt={dev.github_username}/>
                 <div className="user-info">
-                <strong>{}dev.name</strong>
-                <span>{dev.techs.join(', ')}</span>
+                  <strong>{dev.github_username}</strong>
+                  <span>{dev.techs.join(', ')}</span>
                 </div>
               </header>
-              <p>{dev.bio}</p>
-              <a href={`https://github.com/${dev.github_username}`}>Acessar Perfil No Github</a>
+                <p>{dev.bio}</p>
+                <a href={`https://github.com/${dev.github_username}`}>Acessar Perfil No Github</a>
               </li>
           ))}
        </ul>
+       
 
 
 
